@@ -1,0 +1,11 @@
+--indexes-- cluster  / non cluster
+
+select * from Orders;
+-- create clustered index xi_salary_id1 on salary(SalaryId)
+
+-- create nonclustered index xi_salary_id2 on salary(BasicSalary)
+
+-- create nonclustered index xi_salary_id3 on salary(SalaryMonth)
+
+
+select * from salary where BasicSalary BETWEEN 10000 AND 20000

@@ -1,0 +1,70 @@
+create or alter procedure UspEmployeesEfte
+
+@Action int=0,
+@EmployeeName nvarchar(100)=null,
+@DepartmentId int=0,
+@Salary decimal(10,2)=0,
+@EmployeeId int=0
+
+as
+begin
+    set nocount on;
+
+    begin try
+        begin transaction
+
+        if(@Action = 1)
+        begin
+            INSERT INTO dbo.EmployeesJn (EmployeeName, DepartmentId, Salary)
+            VALUES (@EmployeeName, @DepartmentId, @Salary);
+            commit transaction
+            select 'Data inserted successfully, EmployeeId = ' + cast(SCOPE_IDENTITY() as varchar(20)) as Result
+        end
+        else if(@Action = 2)
+        begin
+            UPDATE dbo.EmployeesJn
+            SET EmployeeName = @EmployeeName, DepartmentId = @DepartmentId, Salary = @Salary
+            WHERE EmployeeId = @EmployeeId;
+
+            if(@@ROWCOUNT = 0)
+                throw 50001, 'EmployeeId not found, nothing updated', 1;
+
+            commit transaction
+            select 'Data updated successfully' as Result
+        end
+        else if(@Action = 3)
+        begin
+            DELETE FROM dbo.EmployeesJn
+            WHERE EmployeeId = @EmployeeId;
+
+            if(@@ROWCOUNT = 0)
+                throw 50002, 'EmployeeId not found, nothing deleted', 1;
+
+            commit transaction
+            select 'Data deleted successfully' as Result
+        end
+        else if(@Action = 4)
+        begin
+            commit transaction
+            select * from dbo.EmployeesJn where EmployeeId = @EmployeeId;
+            SELECT 'Data retrieved successfully' as Result
+        end
+        else if(@Action = 5)
+        begin
+            commit transaction
+            select * from dbo.EmployeesJn;
+            SELECT 'Data retrieved successfully' as Result
+        end
+        else
+        begin
+            throw 50000, 'Invalid @Action. Use 1=Insert, 2=Update, 3=Delete, 4=Get one, 5=Get all', 1;
+        end
+    end try
+
+    begin catch
+        if(@@TRANCOUNT > 0)
+            rollback transaction
+
+        select 'TRANSACTION ROLLBACK: ' + ERROR_MESSAGE() as Result
+    end catch
+end

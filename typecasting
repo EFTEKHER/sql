@@ -1,0 +1,30 @@
+-- SELECT cast(100 as varchar (100));
+
+-- select cast('100' as int)
+
+
+-- select cast('0' AS BIT)
+
+
+-- select cast(15.89 AS BIT)
+
+select cast(15.9889998 as int)
+
+
+-- select GETDATE()
+
+select CONVERT(varchar(20),getdate(),106);
+select cast('2026/08/07' as date);
+
+---------------
+
+select TRY_CAST('125252abc' as date)
+
+---------------
+select convert(varchar(20),'202-8-07',102)
+
+-----------------
+select TRY_CONVERT(varchar(20),'202-8-07',102);
+
+---------
+select 12 +'13'

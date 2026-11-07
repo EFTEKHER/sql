@@ -1,0 +1,27 @@
+---- table-valued functions
+-- go
+-- create or alter function GetOrderById(@OrderId int)
+-- returns table
+-- as return (select * from dbo.Orders where orderid= @OrderId)
+
+-- go
+
+-- select * FROM dbo.GetOrderById(10251)
+
+-- go
+-- CREATE or alter function  GetEmployeeById(@EmpId int)
+-- returns @EmpTbl table(FirstName NVARCHAR(10),LastName VARCHAR(20),Dob DATETIME) as begin 
+-- insert into @EmpTbl
+-- select FirstName, LastName, BirthDate from dbo.Employees where EmployeeId = @EmpId
+-- return
+-- end
+-- select * from dbo.GetEmployeeById(1);
+
+--
+
+-- create or alter function GetEmployeesinCity(@City NVARCHAR(50)) returns table
+-- as
+-- return
+-- select * from Employees where City=@City
+
+select * from dbo.GetEmployeesinCity('London')

@@ -1,0 +1,30 @@
+
+select StudentName,isnull(SecondaryEmail,'N/A'),Email from student
+
+
+
+-- CreatedAt gets current UTC time automatically
+-- IF NOT EXISTS (
+--     SELECT 1 FROM sys.default_constraints
+--     WHERE parent_object_id = OBJECT_ID('dbo.Employee')
+--       AND COL_NAME(parent_object_id, parent_column_id) = 'CreatedAt'
+-- )
+-- ALTER TABLE Employee ADD CONSTRAINT DF_Employee_CreatedAt DEFAULT SYSUTCDATETIME() FOR CreatedAt;
+-- GO
+
+-- INSERT INTO Employee(EmpName, Dob) VALUES
+-- ('John Doe',      '1990-01-15'),
+-- ('Jane Smith',    NULL),
+-- (NULL,            '1988-07-22'),
+-- ('Emily Davis',   '1995-03-10'),
+-- (NULL,            NULL),
+-- ('Michael Brown', NULL),
+-- ('Sarah Wilson',  '1992-11-05'),
+-- (NULL,            '1985-09-30'),
+-- ('David Clark',   NULL),
+-- (NULL,            NULL);
+
+select * from Employee
+
+-- null handling on Employee
+select isnull(EmpName,'N/A') as EmpName, isnull(cast(Dob as varchar(20)),'N/A') as Dob, CreatedAt from Employee

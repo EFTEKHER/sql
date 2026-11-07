@@ -1,0 +1,11 @@
+insert  into student(StudentName,FatherName,MotherName,Email,SecondaryEmail,DOB, Age,CreatedAt,IsAdult,UpdatedAt)values
+    ('Rahim Ahmed',     'Karim Ahmed',     'Rina Begum',     'rahim.ahmed@mail.com',   NULL,                    '2010-05-12', 16, getdate(), 0, NULL),
+    ('Fatima Khan',     'Jamal Khan',      'Salma Khan',     'fatima.khan@mail.com',   'fatima.k@gmail.com',    '2008-02-20', 18, getdate(), 1, NULL),
+    ('Arif Hossain',    'Belal Hossain',   'Nasima Akter',   'arif.hossain@mail.com',  NULL,                    '2012-09-03', 14, getdate(), 0, NULL),
+    ('Nusrat Jahan',    'Abdul Malek',     'Shirin Akter',   'nusrat.jahan@mail.com',  'nusrat.j@yahoo.com',    '2005-11-15', 20, getdate(), 1, NULL),
+    ('Tanvir Islam',    'Rafiqul Islam',   'Hasina Begum',   'tanvir.islam@mail.com',  NULL,                    '2013-07-25', 13, getdate(), 0, NULL),
+    ('Sadia Rahman',    'Mizanur Rahman',  'Parvin Sultana', 'sadia.rahman@mail.com',  'sadia.r@gmail.com',     '2007-01-08', 19, getdate(), 1, NULL),
+    ('Imran Chowdhury', 'Faruk Chowdhury', 'Rokeya Begum',   'imran.ch@mail.com',      NULL,                    '2014-03-30', 12, getdate(), 0, NULL),
+    ('Mim Akter',       'Shahidul Alam',   'Josna Akter',    'mim.akter@mail.com',     'mim.akter@outlook.com', '2009-12-01', 16, getdate(), 0, NULL),
+    ('Sakib Hasan',     'Mahbub Hasan',    'Laila Hasan',    'sakib.hasan@mail.com',   'sakib.h@gmail.com',     '2004-06-18', 22, getdate(), 1, NULL),
+    ('Lamia Sultana',   'Anwar Hossain',   'Ruma Sultana',   'lamia.sultana@mail.com', NULL,                    '2011-10-10', 15, getdate(), 0, NULL);

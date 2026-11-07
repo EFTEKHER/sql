@@ -1,0 +1,6 @@
+--- common table expression
+
+;with  StudentCTE as(
+    select StudentName,FatherName  from  student WHERE StudentId=1
+)
+select * from StudentCTE

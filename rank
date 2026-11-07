@@ -1,0 +1,35 @@
+---rank functions
+
+select max(basicSalary) from dbo.Salary
+select top 1 basicSalary from Salary order by basicSalary desc
+
+
+--- 2nd max
+
+select EmployeeId,BasicSalary , rank()over (order by basicSalary desc) as Rank from Salary
+
+----- cte
+;with rank as(
+ select * ,rank()over(order by basicSalary desc) as Rank from Salary
+)
+
+select * from rank where Rank = 2
+
+
+---rank 
+select EmployeeId,BasicSalary ,rank from (
+    select EmployeeId,BasicSalary ,rank() over(order by basicSalary desc) as Rank from salary
+) as ranked_employees where ranked_employees.[Rank]=2
+
+
+---dense rank
+
+
+select EmployeeId,BasicSalary , dense_rank()over (order by basicSalary desc) as Rank from Salary
+
+
+----rank function. windows function part
+
+select EmployeeId,BasicSalary ,rank from (
+    select EmployeeId,BasicSalary ,dense_rank() over(order by basicSalary desc) as Rank from salary
+) as ranked_employees where ranked_employees.[Rank]=4

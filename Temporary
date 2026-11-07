@@ -1,0 +1,11 @@
+-- Temporary Tables / Hash Tables
+-- local , global
+
+-- local:- 
+
+
+
+CREATE TABLE #Employee(
+    EmpName varchar(50) null,
+    Email varchar(50) null
+);

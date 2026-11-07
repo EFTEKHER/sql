@@ -1,0 +1,34 @@
+---joins
+
+
+
+
+-----inner, left, right, outer
+
+----inner left right
+
+
+SELECT * from EmployeesJn
+
+
+SELECT * from DepartmentsJn
+
+
+select DepartmentName, EmployeeName,salary,location from EmployeesJn as e
+INNER JOIN  DepartmentsJn as d on e.DepartmentId = d.DepartmentId
+
+
+
+select DepartmentName, EmployeeName,salary,location from EmployeesJn as e
+left JOIN  DepartmentsJn as d on e.DepartmentId = d.DepartmentId
+
+
+
+
+select DepartmentName, EmployeeName,salary,location from EmployeesJn as e
+right JOIN  DepartmentsJn as d on e.DepartmentId = d.DepartmentId
+
+
+
+select DepartmentName, EmployeeName,salary,location from EmployeesJn as e
+right JOIN  DepartmentsJn as d on e.DepartmentId = d.DepartmentId where isnull(e.EmployeeName,'')<>''

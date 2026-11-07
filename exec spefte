@@ -1,0 +1,12 @@
+exec [dbo].[UspEmployeesEfte] @Action=4, @EmployeeId=4
+
+exec [dbo].[UspEmployeesEfte] @Action=1, @EmployeeName='abisheck', @DepartmentId=34, @Salary=3454445
+
+exec [dbo].[UspEmployeesEfte] @Action=5
+
+exec [dbo].[UspEmployeesEfte] @Action=2, @EmployeeId=4, @EmployeeName='newname', @DepartmentId=35, @Salary=3500000
+
+exec [dbo].[UspEmployeesEfte] @Action=5
+
+
+exec [dbo].[UspEmployeesEfte] @Action=3, @EmployeeId=4

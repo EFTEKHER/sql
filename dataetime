@@ -1,0 +1,25 @@
+----datetime 
+
+select GETDATE()
+select year('2026-05-05');
+select month('2026-05-05');
+SELECT day('2026-05-05')
+
+-------------
+
+select datepart(year, '2026-05-05')
+select DATEPART(MONTH, '2026-05-05')
+select DATEPART(DAY, '2026-05-05')  
+
+select DATEPART(weekday, '2026-05-05') 
+
+
+select DATEADD(month,45,'2026-05-05')
+
+select DATEADD(day,-45,'2026-05-05')
+
+select DATEDIFF(day,'2026-05-05', '2027-05-05')
+select DATEDIFF(month,'2026-05-05', '2027-05-05')
+select DATEDIFF(year,'2026-05-05', '2027-05-05')
+
+select EOMONTH('2026-05-05')

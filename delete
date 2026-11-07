@@ -1,0 +1,2 @@
+delete from student where StudentId = 11;
+select * FROM student;

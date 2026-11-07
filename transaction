@@ -1,0 +1,20 @@
+BEGIN TRY
+    BEGIN TRANSACTION
+
+        INSERT INTO dbo.EmployeesJn (EmployeeId, EmployeeName, DepartmentId, Salary)
+        VALUES (7, 'Efte', 105, NULL);
+
+        UPDATE dbo.DepartmentsJn SET DepartmentName = 'IT CELL' WHERE DepartmentId = 105;
+
+        INSERT INTO dbo.DepartmentsJn (DepartmentId, DepartmentName, Location)
+        VALUES (106, 'legal', 'delhi');
+
+    COMMIT TRANSACTION
+    SELECT 'Operation successfully done';
+END TRY
+BEGIN CATCH
+    IF @@TRANCOUNT > 0
+        ROLLBACK TRANSACTION;
+
+    SELECT 'TRANSACTION ROLLBACK: ' + ERROR_MESSAGE() AS Result;
+END CATCH

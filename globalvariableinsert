@@ -1,0 +1,5 @@
+insert INTO ##employee(EmpName, Email) VALUES ('John Doe', 'john.doe@example.com');
+
+SELECT * FROM ##employee;
+
+drop table ##employee

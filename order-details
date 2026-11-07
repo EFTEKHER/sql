@@ -1,0 +1,23 @@
+---union and union all
+select * from [Order Details]
+where Quantity BETWEEN 5 and 15
+
+union 
+select * from [Order Details] where Quantity BETWEEN 30 and 45
+
+
+-- union single data 
+-- union all combined data- duplicate
+
+
+select * from [Order Details] where ProductID=77
+union 
+select * from [Order Details]  where ProductID in (32,77)
+
+
+------------------------------------------------------------
+
+
+select OrderID  from [Order Details] where ProductID=77
+UNION 
+select OrderID from Orders where ShipVia=3

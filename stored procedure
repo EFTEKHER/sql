@@ -1,0 +1,26 @@
+create PROCEDURE UspLearnSpo
+as
+
+begin
+
+BEGIN TRY
+    BEGIN TRANSACTION
+
+        INSERT INTO dbo.EmployeesJn ( EmployeeName, DepartmentId, Salary)
+        VALUES ( 'Efte', 105, 67700);
+
+        UPDATE dbo.DepartmentsJn SET DepartmentName = 'IT CELL' WHERE DepartmentId = 105;
+
+        INSERT INTO dbo.DepartmentsJn (DepartmentId, DepartmentName, Location)
+        VALUES (106, 'legal', 'delhi');
+
+    COMMIT TRANSACTION
+    SELECT 'Operation successfully done';
+END TRY
+BEGIN CATCH
+    IF @@TRANCOUNT > 0
+        ROLLBACK TRANSACTION;
+
+    SELECT 'TRANSACTION ROLLBACK: ' + ERROR_MESSAGE() AS Result;
+END CATCH
+END 

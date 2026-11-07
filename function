@@ -1,0 +1,66 @@
+---custom functions
+--- scalar valued functions
+-- create function CalculateYearlyPackage(
+
+--     @BasicSalary decimal(12,2)
+
+-- )returns decimal(12,2)
+-- as
+-- begin
+-- return 12*@basicsalary
+-- end
+
+
+-- alter function CalculateYearlyPackage(
+
+--     @BasicSalary decimal(12,2)
+
+-- )returns decimal(12,2)
+-- as
+-- begin
+-- return 12*@basicsalary
+-- end
+
+-- SELECT dbo.CalculateYearlyPackage(50000);
+
+
+-- CREATE function IsAdult(@age int)
+-- returns bit
+-- as
+-- begin
+-- declare @isAdult bit = 0;
+-- if @age >= 18
+-- begin
+-- set @isAdult = 1;
+-- end
+-- return @isAdult;
+-- end
+
+
+
+-- GO
+-- CREATE OR ALTER FUNCTION dbo.IsAdult(@age int)
+-- RETURNS bit
+-- AS
+-- BEGIN
+--     RETURN IIF(@age >= 18, 1, 0);
+-- END
+-- GO
+
+-- select dbo.IsAdult(20) as IsAdult;
+
+-- go
+
+-- create or alter function CountOrder()
+-- returns int
+-- as
+-- begin
+--     declare @count int;
+--     select @count = count(*) from Orders;
+--     return @count;
+-- end
+-- go
+
+-- scalar valued function
+
+select dbo.CountOrder();

@@ -1,0 +1,2 @@
+UPDATE student SET StudentName = 'Eftekher Ali Efte', FatherName = 'Tonmoy Khan', Email = 'eftekheralo2000@gmail.com' WHERE StudentId = 1;
+select * FROM student;
